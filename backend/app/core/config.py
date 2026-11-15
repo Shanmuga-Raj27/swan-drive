@@ -29,6 +29,8 @@ class Settings(BaseSettings):
     S3_BUCKET_NAME: str
     S3_PRESIGNED_URL_EXPIRY: int = 3600
     CORS_ORIGINS: list[str] = [
+        "https://swandrive.me",
+        "https://www.swandrive.me",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
     ]
@@ -42,8 +44,8 @@ class Settings(BaseSettings):
     SECRET_KEY: str
 
     # Resend Email Configuration for OTP Verification
-    RESEND_API_KEY: str = ""
-    RESEND_FROM_EMAIL: str = "Swan Drive <onboarding@resend.dev>"
+    RESEND_API_KEY: str 
+    RESEND_FROM_EMAIL: str 
 
     # Performance & Reliability Pool & Concurrency Controls
     DATABASE_POOL_SIZE: int = 20
