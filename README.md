@@ -8,7 +8,7 @@
 > **Secure cloud storage with AI-powered document search.**  
 > **Ask questions and understand your documents with Swan AI.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-swandrive.vercel.app-FF6B00?style=for-the-badge&logo=vercel&logoColor=white)](https://swandrive.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-swandrive.me-FF6B00?style=for-the-badge&logo=vercel&logoColor=white)](https://swandrive.me)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React 19](https://img.shields.io/badge/React%2019-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
 [![Material UI](https://img.shields.io/badge/MUI%209-007FFF?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com)
@@ -17,14 +17,14 @@
 
 ---
 
-**🌐 Live Application:** [https://swandrive.vercel.app](https://swandrive.vercel.app)  
+**🌐 Live Application:** [https://swandrive.me](https://swandrive.me)  
 **📬 Developer Contact:** [Email](mailto:rshanmugaraj11@gmail.com) · [LinkedIn](https://www.linkedin.com/in/shanmugaraj27)
 
 </div>
 
 > `NOTE:`
 > **Live Demo Backend Schedule:**  
-> The frontend client is hosted 24/7 on **Vercel Edge CDN**. Due to AWS free-tier credit limits, the backend compute instance on **AWS EC2** is active daily from **9:00 AM to 6:00 PM IST (`Asia/Kolkata`)**.  
+> The frontend client is hosted 24/7 on **Vercel Edge CDN**. Due to AWS free-tier credit limits, the backend compute instance on **AWS EC2** is active daily from **9:30 AM to 6:30 PM IST (`Asia/Kolkata`)**.  
 > If you visit outside these operational hours and find the backend paused, feel free to reach out directly via [Email](mailto:rshanmugaraj11@gmail.com) or [LinkedIn](https://www.linkedin.com/in/shanmugaraj27) to spin it up or schedule a live walkthrough!
 
 ---
@@ -36,7 +36,7 @@
 - 🧠 **Conversational Q&A with Swan AI (RAG)** — Select up to 5 documents and chat with **Swan AI**. Powered by Retrieval-Augmented Generation (RAG) and Google Gemini, delivering token-by-token streaming responses (SSE) grounded in your documents with verifiable citation pills.
 - ⚡ **Fail-Open Answer Caching with Redis** — Repeated queries resolve instantly through an Upstash Redis REST cache. Cache keys dynamically bind to corpus revisions, guaranteeing instant invalidation whenever documents are updated.
 - 🎨 **Modern, Responsive MUI Interface** — Clean single-page application crafted in React 19 and Material UI (MUI 9), featuring light/dark mode, real-time backend health indicators, and zero external CSS overhead.
-- 🛡️ **Enterprise-Grade Multi-Tenant Security** — Cryptographically secured with Argon2id password hashing, short-lived JWT bearer tokens, and row-level tenant isolation across relational tables, S3 prefixes, and Qdrant vector payloads.
+- 🛡️ **Verified Authentication & Multi-Tenant Security** — Cryptographically secured with Argon2id password hashing, short-lived JWT bearer tokens, and row-level tenant isolation. Registration enforces two-step email verification via 6-digit OTPs delivered via **Resend**, backed by ephemeral Redis staging (10-minute TTL) and atomic Lua-scripted brute-force protection.
 
 ---
 
@@ -46,8 +46,9 @@
 | :--- | :--- | :--- |
 | **Frontend** | **React 19**, **Vite**, **Material UI (MUI 9)**, **Axios** | Single-page app (SPA), custom MUI design tokens, JWT interceptors, and Server-Sent Events (SSE) streaming consumer. |
 | **Backend** | **Python 3.12**, **FastAPI**, **Uvicorn / Gunicorn**, **Pydantic** | High-performance asynchronous REST API, request schema validation, streaming endpoints, and background task workers. |
+| **Auth & Email** | **Resend API**, **Argon2id (`pwdlib`)**, **JWT (`python-jose`)** | Transactional OTP email delivery via Resend REST API; Argon2id password hashing and JWT bearer token issuance. |
 | **AI / RAG & Vectors** | **Google GenAI SDK**, **Gemini API**, **Qdrant Cloud**, **PyMuPDF** | Vector embeddings via `gemini-embedding-2` (768d Cosine), streaming generation via Gemini multi-model fallback (`gemini-3.1-flash-lite`), and PDF parsing. |
-| **Database & Cache** | **AWS RDS MySQL 8.0**, **SQLAlchemy 2**, **Alembic**, **Upstash Redis** | Relational user/file metadata and chunk staging with connection pooling; serverless REST-based fail-open query caching (24h TTL). |
+| **Database & Cache** | **AWS RDS MySQL 8.0**, **SQLAlchemy 2**, **Alembic**, **Upstash Redis** | Relational user/file metadata and chunk staging with connection pooling; serverless REST-based fail-open query caching (24h TTL), ephemeral OTP staging (10m TTL), and login rate limiting. |
 | **Cloud & DevOps** | **AWS EC2 (`t3.micro`)**, **AWS S3**, **Vercel Edge**, **Docker & Compose**, **Nginx** | Containerized backend deployment behind Nginx reverse proxy, client-direct S3 presigned transfers, and Vercel edge reverse-proxy rewrites. |
 
 ---
@@ -71,6 +72,7 @@
 │  ┌────────────────────────────────▼─────────────────────────────────┐  │
 │  │               FastAPI Backend Container (Docker)                 │  │
 │  │   • Auth & Security (Argon2id + JWT)                             │  │
+│  │   • Transactional Email OTP (Resend API)                         │  │
 │  │   • S3 Presigned URL Provisioning                                │  │
 │  │   • Document Ingestion, PyMuPDF Parsing & Chunking               │  │
 │  │   • RAG Orchestrator & SSE Token Streaming                       │  │
@@ -82,9 +84,9 @@
  ┌──────────────┐            ┌──────────────┐            ┌──────────────┐
  │   AWS RDS    │            │ Qdrant Cloud │            │ Redis Cloud  │
  │ (MySQL 8.0)  │            │(Vector Store)│            │(Upstash REST)│
- │ • Users/Auth │            │• Vault Meta  │            │• Fail-open   │
- │ • File Meta  │            │• Chunks (768d│            │  Answer Cache│
- │ • Chunks/Rev │            │  Cosine)     │            │• 24h TTL     │
+ │ • Users/Auth │            │• Vault Meta  │            │• OTP Staging │
+ │ • File Meta  │            │• Chunks (768d│            │• Rate Limits │
+ │ • Chunks/Rev │            │  Cosine)     │            │• Answer Cache│
  └──────────────┘            └──────────────┘            └──────────────┘
         │                           │
         ▼                           ▼
@@ -140,6 +142,7 @@ Personal_Knowledge_Base/
 │   │   │   ├── AI/                       # Qdrant client & vector operations
 │   │   │   ├── AWS/                      # S3 presigned URL generation & storage ops
 │   │   │   ├── cache/                    # Upstash Redis REST cache client
+│   │   │   ├── email/                    # Resend transactional email OTP service
 │   │   │   └── rag/                      # Chunking, embeddings, retrieval & generation
 │   │   ├── workers/                      # Background indexing & recovery workers
 │   │   └── utils/                        # Rate limiting and helper utilities
