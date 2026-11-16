@@ -45,7 +45,7 @@ Whether you specialize in React components, design systems, responsive layouts, 
 
 - **Framework:** React 19 powered by Vite.
 - **Design & Component Library:** Material UI (MUI 9) (`@mui/material`, `@mui/icons-material`).
-- **Language:** JavaScript (`.jsx`) or TypeScript (`.tsx`). You may choose either language based on what best organizes your components.
+- **Language:** Pure **JavaScript (`.jsx` and `.js`)** alone. TypeScript is not required or used, keeping component files lightweight, clean, and free of typing overhead.
 - **HTTP Client:** Axios with centralized interceptors.
 - **Dependency Discipline:** Use existing dependencies instead of adding external styling or UI packages.
 

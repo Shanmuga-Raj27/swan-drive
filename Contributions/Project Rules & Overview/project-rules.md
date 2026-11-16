@@ -40,6 +40,7 @@ Swan Drive is designed so that any contributor can set up and run the entire sys
 
 - **Your Own Code Style:** Developers are encouraged to write code in their own personal style. Swan Drive does not dictate rigid line-by-line coding syntax or provide mandatory boilerplate code blocks.
 - **Core Architecture Boundaries:** We ask only that contributors respect the primary architectural boundaries:
+  - **JavaScript Only:** All frontend components, services, and utilities must be written in pure **JavaScript (`.jsx` and `.js`)**. TypeScript is not used.
   - **Material UI Only:** Use Material UI (MUI 9) components and theme tokens for UI development.
   - **Zero Custom CSS/SCSS:** Do not introduce `.css`, `.scss`, Tailwind, or Bootstrap stylesheets.
   - **Separation of Concerns:** Keep API communication in `frontend/src/apis/`, business logic in `frontend/src/services/`, and presentational views in `frontend/src/components/` and `frontend/src/pages/`.
