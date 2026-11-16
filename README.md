@@ -5,7 +5,7 @@
 # Swan Drive
 
 > **Swan Drive is an intelligent document workspace for everyone.**  
-> **Secure cloud storage with AI-powered document search.**  
+> **Cloud Document Storage with AI-powered document search.**  
 > **Ask questions and understand your documents with Swan AI.**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-swandrive.me-FF6B00?style=for-the-badge&logo=vercel&logoColor=white)](https://swandrive.me)
@@ -31,7 +31,7 @@
 
 ## ✨ Key Features
 
-- 📁 **Secure Cloud Document Vault** — Upload and manage multi-format documents (PDF, DOCX, XLSX, CSV, Markdown, TXT) up to 50MB. File binaries stream straight to **AWS S3** via presigned URLs without bottlenecking the backend server.
+- 📁 **Cloud Document Storage** — Upload and manage multi-format documents (PDF, DOCX, XLSX, CSV, Markdown, TXT) up to 50MB. File binaries stream straight to **AWS S3** via presigned URLs without bottlenecking the backend server.
 - 🔍 **Semantic & Vector Document Search** — Beyond exact keywords: documents are indexed as high-dimensional vector embeddings, enabling natural language search across titles, tags, and document contents.
 - 🧠 **Conversational Q&A with Swan AI (RAG)** — Select up to 5 documents and chat with **Swan AI**. Powered by Retrieval-Augmented Generation (RAG) and Google Gemini, delivering token-by-token streaming responses (SSE) grounded in your documents with verifiable citation pills.
 - ⚡ **Fail-Open Answer Caching with Redis** — Repeated queries resolve instantly through an Upstash Redis REST cache. Cache keys dynamically bind to corpus revisions, guaranteeing instant invalidation whenever documents are updated.
