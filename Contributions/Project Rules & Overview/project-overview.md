@@ -33,14 +33,9 @@ Swan Drive was designed to bridge the gap between simple tutorial apps and produ
 You do **not** need years of professional experience to participate. Whether you are fixing a typo, improving a UI interaction, or proposing an architecture optimization, your curiosity and contributions are welcome.
 
 ### Accessible Local Setup & Free Tiers
-Contributors can set up the entire stack locally using free developer tiers and local tools:
-- Free S3-compatible cloud storage via **Backblaze B2**.
-- Free serverless caching via **Upstash Redis**.
-- Free vector indexing within **Qdrant Cloud** limits.
-- Free AI embeddings and generation via **Google Gemini API keys**.
-- Free transactional OTP email testing via **Resend** (using `onboarding@resend.dev` without a custom domain).
-- Local **MySQL** database for structured data.
-- Streamlined setup with **`uv sync`** for the backend and **`npm ci`** for the frontend (see `others/.env.example` and `project-rules.md` for configuration details).
+Contributors can set up and run the entire stack locally with **zero cost** using free developer tiers (Backblaze B2, Upstash Redis, Qdrant Cloud, local MySQL, Gemini API, and Resend). No credit card is required.
+
+For complete step-by-step instructions on git cloning, configuring `others/.env`, and running both backend and frontend, see the [Local Setup Guide](./local-setup-guide.md).
 
 Developers are also welcome to leverage any AI tools, coding assistants, and the Playwright MCP server to accelerate testing and development, provided they do so with caution and verify all changes against project standards.
 
@@ -76,6 +71,7 @@ Swan Drive uses a focused, modern technology stack:
 
 Swan Drive is actively developed and continuously improving. Features, documentation, and architecture patterns will evolve over time. We invite you to explore the other guides in this directory to get started:
 
+- [`local-setup-guide.md`](./local-setup-guide.md) — Step-by-step local development setup, free-tier services, and execution commands.
 - [`project-rules.md`](./project-rules.md) — Contributor expectations, coding standards, and pull request guidelines.
 - [`frontend-guide.md`](../Frontend%20guide/frontend-guide.md) — Frontend architecture, Material UI design standards, and responsive UI conventions.
 - [`security-guide.md`](../Security%20guide/security-guide.md) — Responsible security reviews, reporting procedures, and testing guidelines.

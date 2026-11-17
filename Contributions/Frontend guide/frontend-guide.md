@@ -26,11 +26,12 @@ Whether you specialize in React components, design systems, responsive layouts, 
 
 ---
 
-## 🛠️ Local Setup & Dependency Installation
+## 🛠️ Frontend Quick Start
 
-- **Install Dependencies:** Inside the `frontend/` directory, run `npm ci` to install exact pinned dependencies cleanly.
-- **Development Server:** Run `npm run dev` to launch the Vite development server.
-- **Local Testing Services:** Configure your local environment according to `others/.env.example` using free-tier services (Backblaze B2, Upstash Redis, Qdrant Cloud, local MySQL, and free Gemini API keys) and backend started via `uv sync`.
+For full repository setup, git workflow, and backend services, see the comprehensive **[Local Setup Guide](../Project%20Rules%20&%20Overview/local-setup-guide.md)**.
+
+- **Install Dependencies:** Inside `frontend/`, run `npm ci`
+- **Start Development Server:** Run `npm run dev` (starts on `http://localhost:5173`)
 
 ---
 

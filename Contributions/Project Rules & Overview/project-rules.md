@@ -13,26 +13,11 @@ To ensure that the codebase remains clean, maintainable, and reliable for all le
 
 ---
 
-## 🛠️ Local Setup, Testing & Free-Tier Services
+## 🛠️ Local Development & Setup
 
-Swan Drive is designed so that any contributor can set up and run the entire system locally using free developer tiers and local tools:
+Swan Drive can be run locally at **zero cost** using free developer tiers (no credit card required).
 
-- **Object Storage:** Use **Backblaze B2** for free S3-compatible cloud storage.
-- **Cache & Ephemeral Storage:** Use **Upstash Redis** free cloud tier (REST API).
-- **Vector Database:** Use **Qdrant Cloud** within its free cluster limits.
-- **Relational Database:** Run a **local MySQL** instance on your machine.
-- **AI & Vector Embeddings:** Use **Google Gemini free API keys** for embeddings and conversational RAG generation.
-- **Email Service (OTP Verification):** Use **Resend** for free transactional email testing without needing a custom domain:
-  - Sign up for a free account at `resend.com` using your personal email.
-  - Generate a free API key in the Resend dashboard.
-  - Set `RESEND_API_KEY` to your key and `RESEND_FROM_EMAIL` to `onboarding@resend.dev` in your `.env`.
-  - When testing registration on `localhost`, register using the same email address as your Resend account.
-- **Environment Configuration:** Read the environment template in `others/.env.example` and project documentation to configure your local credentials and connection strings.
-
-### Installing Dependencies
-
-- **Backend Dependencies:** Use the `uv sync` command inside the `backend/` directory to lock and sync your Python environment.
-- **Frontend Dependencies:** Use the `npm ci` command inside the `frontend/` directory to perform a clean, reproducible installation of JavaScript dependencies.
+For step-by-step instructions, refer to the dedicated **[Local Setup Guide](./local-setup-guide.md)**.
 
 ---
 
