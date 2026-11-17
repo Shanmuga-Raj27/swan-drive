@@ -132,7 +132,7 @@ function App() {
     }
 
     if (isUserAuthenticated) {
-      document.title = view === 'knowledge' ? 'Swan AI – Swan Drive' : 'My Drive – Swan Drive'
+      document.title = view === 'knowledge' ? 'Swan AI – Swan Drive' : 'Swan Drive'
       robotsMeta.setAttribute('content', 'noindex, nofollow')
     } else {
       document.title =
@@ -193,7 +193,7 @@ function App() {
               >
                 <Container maxWidth="lg">
                   <Typography variant="caption" sx={{ color: theme.palette.text.secondary, fontWeight: 500 }}>
-                    &copy; {new Date().getFullYear()} Swan Drive. Secure Cloud Storage & Intelligent AI.
+                    &copy; {new Date().getFullYear()} Swan Drive. Cloud Document Storage & Intelligent AI.
                   </Typography>
                 </Container>
               </Box>
@@ -271,7 +271,7 @@ function App() {
                   >
                     <Container maxWidth="lg">
                       <Typography variant="caption" sx={{ color: theme.palette.text.secondary, fontWeight: 500 }}>
-                        &copy; {new Date().getFullYear()} Swan Drive. Secure Cloud Storage & Intelligent AI.
+                        &copy; {new Date().getFullYear()} Swan Drive. Cloud Document Storage & Intelligent AI.
                       </Typography>
                     </Container>
                   </Box>

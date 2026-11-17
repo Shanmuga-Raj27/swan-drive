@@ -119,7 +119,7 @@ function FileList({
                       fontSize: '1rem',
                     }}
                   >
-                    {searchTerm ? 'No matching documents found' : 'No documents in My Drive'}
+                    {searchTerm ? 'No matching documents found' : 'No documents in Swan Drive'}
                   </Typography>
                   <Typography
                     variant="body2"

@@ -155,7 +155,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                   '&:hover': { color: isDark ? '#FFFFFF' : '#0A0A0A' },
                 }}
               >
-                My Drive
+                Swan Drive
               </Button>
               <Button
                 variant="text"
@@ -267,7 +267,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                 onClick={() => scrollToSection('my-drive')}
                 sx={{ justifyContent: 'flex-start', color: theme.palette.text.primary, fontWeight: 600 }}
               >
-                My Drive
+                Swan Drive
               </Button>
               <Button
                 fullWidth
@@ -554,7 +554,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                       />
                     </Box>
                     <Typography variant="body2" sx={{ color: theme.palette.text.secondary, lineHeight: 1.65 }}>
-                      SwanDrive is currently in an early experimental stage. Some features may be incomplete, and you may encounter unexpected bugs or temporary service interruptions. We are continuously working to improve the application.
+                      Swan Drive is currently in an early experimental stage. Some features may be incomplete, and you may encounter unexpected bugs or temporary service interruptions. We are continuously working to improve the application.
                     </Typography>
                   </Box>
                 </Box>
@@ -610,7 +610,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                         Service Availability
                       </Typography>
                       <Chip
-                        label="Daily 9:30 AM – 6:30 PM IST"
+                        label="Daily 9:30 AM – 4:00 PM IST"
                         size="small"
                         sx={{
                           height: 22,
@@ -623,7 +623,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                       />
                     </Box>
                     <Typography variant="body2" sx={{ color: theme.palette.text.secondary, lineHeight: 1.65 }}>
-                      To manage infrastructure costs during the experimental phase, the backend service operates daily from 9:30 AM to 6:30 PM IST (Asia/Kolkata). The application may be unavailable outside these hours.
+                      To manage infrastructure costs during the experimental phase, the backend service operates daily from 9:30 AM to 4:00 PM IST (Asia/Kolkata). The application may be unavailable outside these hours.
                     </Typography>
                   </Box>
                 </Box>
@@ -699,7 +699,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                       />
                     </Box>
                     <Typography variant="body2" sx={{ color: theme.palette.text.secondary, lineHeight: 1.65 }}>
-                      SwanDrive is an experimental application and is not intended for storing sensitive or confidential information. Please avoid uploading personal, private, or sensitive files. For testing purposes, we recommend using publicly available documents, educational notes, or dummy data.
+                      Swan Drive is an experimental application and is not intended for storing sensitive or confidential information. Please avoid uploading personal, private, or sensitive files. For testing purposes, we recommend using publicly available documents, educational notes, or dummy data.
                     </Typography>
                   </Box>
                 </Box>
@@ -709,7 +709,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
         </Container>
       </Box>
 
-      {/* ── 4. PRODUCT SECTION: MY DRIVE ─────────────────────────── */}
+      {/* ── 4. PRODUCT SECTION: SWAN DRIVE ─────────────────────────── */}
       <Box
         id="my-drive"
         component="section"
@@ -728,7 +728,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
               Document Workspace
             </Typography>
             <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', sm: '2.4rem' }, mt: 0.5, mb: 1.5 }}>
-              My Drive – File and Document Management
+              Swan Drive – File and Document Management
             </Typography>
             <Typography variant="body1" sx={{ color: theme.palette.text.secondary, maxWidth: 650, mx: 'auto' }}>
               Organize and access supported documents with verified cloud storage, custom metadata tags, and dynamic status tracking.
@@ -865,7 +865,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
               Swan AI – Grounded Conversational Assistant
             </Typography>
             <Typography variant="body1" sx={{ color: theme.palette.text.secondary, maxWidth: 650, mx: 'auto' }}>
-              Select documents in My Drive and ask specific questions. Swan AI synthesizes answers grounded strictly in your document text.
+              Select documents in Swan Drive and ask specific questions. Swan AI synthesizes answers grounded strictly in your document text.
             </Typography>
           </Box>
 
@@ -1022,7 +1022,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                   mb: 3.5,
                 }}
               >
-                SwanDrive is an open-source project developed with a focus on continuous improvement. The source code is publicly available, and developers are welcome to explore the project, report bugs, suggest new features, and contribute improvements.
+                Swan Drive is an open-source project developed with a focus on continuous improvement. The source code is publicly available, and developers are welcome to explore the project, report bugs, suggest new features, and contribute improvements.
               </Typography>
 
               <Stack
@@ -1273,7 +1273,7 @@ export default function LandingPage({ onLoginClick, onRegisterClick, themeMode, 
                     lineHeight: 1,
                   }}
                 >
-                  SwanDrive
+                  Swan Drive
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ color: theme.palette.text.secondary, fontSize: '0.88rem' }}>

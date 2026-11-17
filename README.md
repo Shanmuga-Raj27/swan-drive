@@ -24,7 +24,7 @@
 
 > `NOTE:`
 > **Live Demo Backend Schedule:**  
-> The frontend client is hosted 24/7 on **Vercel Edge CDN**. Due to AWS free-tier credit limits, the backend compute instance on **AWS EC2** is active daily from **9:30 AM to 6:30 PM IST (`Asia/Kolkata`)**.  
+> The frontend client is hosted 24/7 on **Vercel Edge CDN**. Due to AWS free-tier credit limits, the backend compute instance on **AWS EC2** is active daily from **9:30 AM to 4:00 PM IST (`Asia/Kolkata`)**.  
 > If you visit outside these operational hours and find the backend paused, feel free to reach out directly via [Email](mailto:rshanmugaraj11@gmail.com) or [LinkedIn](https://www.linkedin.com/in/shanmugaraj27) to spin it up or schedule a live walkthrough!
 
 ---
@@ -84,7 +84,7 @@
  ┌──────────────┐            ┌──────────────┐            ┌──────────────┐
  │   AWS RDS    │            │ Qdrant Cloud │            │ Redis Cloud  │
  │ (MySQL 8.0)  │            │(Vector Store)│            │(Upstash REST)│
- │ • Users/Auth │            │• Vault Meta  │            │• OTP Staging │
+ │ • Users/Auth │            │• Doc Vectors │            │• OTP Staging │
  │ • File Meta  │            │• Chunks (768d│            │• Rate Limits │
  │ • Chunks/Rev │            │  Cosine)     │            │• Answer Cache│
  └──────────────┘            └──────────────┘            └──────────────┘
@@ -128,41 +128,53 @@
 ## 📁 Project Folder Structure
 
 ```text
-Personal_Knowledge_Base/
+swan-drive/
 ├── backend/                              # FastAPI backend application
 │   ├── alembic/                          # Database migration scripts & configurations
-│   │   └── versions/                     # Versioned schema migration files
+│   │   ├── versions/                     # Versioned schema migration files
+│   │   └── env.py                        # Alembic migration environment runner
 │   ├── app/                              # Main application package
 │   │   ├── apis/routes/                  # API endpoints (auth, document, search, rag, system)
 │   │   ├── auth/                         # Authentication dependencies & user lookup
 │   │   ├── core/                         # Configuration settings & cryptographic security
 │   │   ├── database/                     # SQLAlchemy engine, session maker & ORM models
 │   │   ├── schemas/                      # Pydantic validation schemas & domain enums
+│   │   ├── scripts/                      # Evaluation and operational smoke test scripts
 │   │   ├── services/                     # Business logic modules
 │   │   │   ├── AI/                       # Qdrant client & vector operations
 │   │   │   ├── AWS/                      # S3 presigned URL generation & storage ops
 │   │   │   ├── cache/                    # Upstash Redis REST cache client
 │   │   │   ├── email/                    # Resend transactional email OTP service
-│   │   │   └── rag/                      # Chunking, embeddings, retrieval & generation
-│   │   ├── workers/                      # Background indexing & recovery workers
-│   │   └── utils/                        # Rate limiting and helper utilities
-│   ├── main.py                           # FastAPI entrypoint, middleware & lifespan
+│   │   │   └── rag/                      # RAG ingestion, chunking, embeddings & query orchestrator
+│   │   │       └── extractors/           # Multi-format document parsers (PDF, DOCX, tables, text)
+│   │   ├── utils/                        # Rate limiting and helper utilities
+│   │   └── workers/                      # Background indexing & recovery workers
+│   ├── data/                             # Standardized evaluation test cases & reports
+│   ├── streamlit_app/                    # Streamlit inspection & evaluation dashboard
+│   ├── tests/                            # Automated test suite (unit, integration & AI-test)
+│   ├── alembic.ini                       # Alembic CLI configuration
 │   ├── Dockerfile                        # Backend production container specification
+│   ├── main.py                           # FastAPI entrypoint, middleware & lifespan
+│   ├── pyproject.toml                    # Python project packaging specifications
 │   └── requirements.txt                  # Pinned Python package dependencies
 ├── frontend/                             # React 19 + Vite frontend application
-│   ├── src/
+│   ├── public/                           # Static assets, icons & favicons
+│   ├── src/                              # Frontend source code
 │   │   ├── apis/                         # Axios client, auth, files & RAG SSE APIs
+│   │   ├── assets/                       # Brand logo, hero graphics & SVG media
 │   │   ├── components/                   # Reusable MUI presentation components
-│   │   ├── context/                      # React context (vault & RAG document selection)
-│   │   ├── pages/                        # VaultPage, KnowledgeBase (Swan AI), Auth & Landing
+│   │   ├── context/                      # React context (document selection state)
+│   │   ├── pages/                        # Swan Drive (VaultPage), KnowledgeBase (Swan AI), Auth & Landing
 │   │   ├── services/                     # Pure domain logic, token persistence & validators
-│   │   ├── theme.js                      # Custom Material UI theme & design tokens
 │   │   ├── App.jsx                       # Root routing & authentication state manager
-│   │   └── main.jsx                      # Vite React 19 DOM mount point
+│   │   ├── main.jsx                      # Vite React 19 DOM mount point
+│   │   └── theme.js                      # Custom Material UI theme & design tokens
+│   ├── index.html                        # Single-page application HTML entrypoint
+│   ├── package.json                      # Frontend scripts and npm dependencies
 │   ├── vercel.json                       # Edge rewrite proxy configuration
-│   └── package.json                      # Frontend scripts and npm dependencies
-├── project-images/                       # Project branding & media assets
-│   └── swan_logo_final_clean.svg         # Official Swan Drive vector logo
+│   └── vite.config.js                    # Vite build configuration
+├── others/                               # Configuration templates & environments
+│   └── .env.example                      # Example environment variables template
 └── docker-compose.yml                    # Multi-container local & production orchestration
 ```
 

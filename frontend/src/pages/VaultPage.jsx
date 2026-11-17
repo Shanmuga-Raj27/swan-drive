@@ -656,10 +656,10 @@ function VaultPage() {
             mb: 0.5,
           }}
         >
-          My Drive
+          Swan Drive
         </Typography>
         <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
-          Store, manage, and organize documents in secure cloud storage with intelligent search.
+          Store, manage, and organize documents in cloud document storage with intelligent search.
         </Typography>
       </Box>
 

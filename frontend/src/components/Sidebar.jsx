@@ -30,7 +30,7 @@ function Sidebar({ open, onToggle, currentView, onViewChange }) {
   const navItems = [
     {
       id: 'vault',
-      label: 'My Drive',
+      label: 'Swan Drive',
       icon: <FolderOutlinedIcon fontSize="small" />,
       badge: null,
     },

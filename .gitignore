@@ -133,7 +133,9 @@ logs/
 # Agentic / Assistant Frameworks
 # ============================================
 .kilo/
-.agents/
+.agents/*
+!.agents/agent-rules.md
+!.agents/agent-memory.md
 GEMINI.md
 prompt-base/
 

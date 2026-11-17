@@ -363,7 +363,7 @@ function KnowledgeBase({ userId }) {
                   <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', justifyContent: 'center' }}>
                     <ChatBubbleOutlinedIcon sx={{ color: theme.palette.text.secondary }} />
                     <Typography variant="body2" sx={{ color: theme.palette.text.secondary, fontWeight: 500 }}>
-                      No documents selected. Open <strong>My Drive</strong>, choose up to 5 documents, and click{' '}
+                      No documents selected. Open <strong>Swan Drive</strong>, choose up to 5 documents, and click{' '}
                       <strong style={{ color: '#FF6B00' }}>Add to Swan AI</strong>.
                     </Typography>
                   </Stack>
@@ -498,7 +498,7 @@ function KnowledgeBase({ userId }) {
               maxRows={5}
               placeholder={
                 selected.length < 1
-                  ? 'Select documents in My Drive to ask questions…'
+                  ? 'Select documents in Swan Drive to ask questions…'
                   : 'Ask anything about your selected documents…'
               }
               value={question}
@@ -525,7 +525,7 @@ function KnowledgeBase({ userId }) {
               title={
                 !canSend
                   ? selected.length < 1
-                    ? 'Select documents in My Drive'
+                    ? 'Select documents in Swan Drive'
                     : 'Enter a prompt'
                   : 'Send (Enter)'
               }
@@ -571,7 +571,7 @@ function KnowledgeBase({ userId }) {
             }}
           >
             {selected.length < 1
-              ? 'Select documents in My Drive to enable querying.'
+              ? 'Select documents in Swan Drive to enable querying.'
               : 'Answers are strictly grounded in selected documents. Press Enter to send, Shift + Enter for new line.'}
           </Typography>
         </Box>
