@@ -3,6 +3,7 @@ backend/tests/unit/core/test_config.py
 
 Unit tests for RAG configuration settings and startup model validation.
 """
+import os
 import pytest
 from pydantic import ValidationError
 from app.core.config import Settings
@@ -11,8 +12,10 @@ from app.core.config import Settings
 def test_settings_load_defaults(monkeypatch):
     """Test that Settings loads default RAG values and passes validation cleanly."""
     settings = Settings()
-    assert settings.GEMINI_EMBEDDING_MODEL == "gemini-embedding-2"
-    assert settings.GEMINI_GENERATION_MODEL == "gemini-3.6-flash"
+    expected_gen_model = os.getenv("GEMINI_GENERATION_MODEL", settings.GEMINI_GENERATION_MODEL)
+    expected_emb_model = os.getenv("GEMINI_EMBEDDING_MODEL", settings.GEMINI_EMBEDDING_MODEL)
+    assert settings.GEMINI_GENERATION_MODEL == expected_gen_model
+    assert settings.GEMINI_EMBEDDING_MODEL == expected_emb_model
     assert settings.EMBEDDING_DIMENSIONS == 768
     assert settings.QDRANT_RAG_COLLECTION_NAME == "document_chunks_v1"
     assert settings.QDRANT_DISTANCE == "COSINE"

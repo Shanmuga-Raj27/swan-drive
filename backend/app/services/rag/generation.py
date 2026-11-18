@@ -125,7 +125,9 @@ async def generate_answer_stream(
         if m.strip()
     ]
 
-    # Try each configured model in order; automatically switch if one fails
+    has_yielded = False
+
+    # Try each configured model in order; automatically switch if one fails before yielding tokens
     for model in models_to_try:
         try:
             stream = await client.aio.models.generate_content_stream(
@@ -135,15 +137,21 @@ async def generate_answer_stream(
             )
             async for chunk in stream:
                 if chunk.text:
+                    has_yielded = True
                     yield chunk.text
             return  # Success: streamed answer, exit function
 
         except errors.APIError as error:
-            print(f"Gemini API error ({error.code}): {error.message}")
-            print("The required model did not return a response. Please try again later.")
+            logger.error("Gemini API error (%s): %s", error.code, error.message)
+            if has_yielded:
+                # Mid-stream failure: tokens were already emitted to the client over SSE.
+                # Never retry or switch models to prevent duplicating partial output.
+                raise
+            continue
 
         except Exception as error:
-            print(f"Unexpected error: {error}")
+            logger.error("Unexpected error in generation: %s", error)
+            raise
 
 
 # UUID hex form used by chunk IDs (UUIDv5)

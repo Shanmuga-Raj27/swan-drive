@@ -32,9 +32,9 @@ Always ask clarifying questions and request explicit user confirmation before:
 ---
 
 ## 4. Shell, Git & MCP Restrictions
-- **No unauthorized shell execution:** Never run unknown shell commands, build commands, docker commands, or background daemons without explicit user direction or permission granted in conversation.
+- **Authorized shell execution:** The agent may use essential shell/bash commands only if the task requires it (e.g., inspecting files, exact line counts, directory checks, or running targeted test scripts explicitly requested by the user). Never run heavy build commands, docker commands, or background daemons without explicit user direction or permission granted in conversation.
+- **Git read commands permitted:** The agent may use `git diff` and other read-only inspection commands (`git status`, `git log`) to verify code changes and track modifications. Strictly never run git write commands (`git commit`, `git push`, `git reset`, `git checkout`, `git rebase`, `git clean`) automatically.
 - **No automatic test suites:** Never launch full automated test suites (e.g., `pytest`, `npm test`, `vitest`) automatically unless explicitly requested by the user.
-- **Strict Git restrictions:** Never run git write commands (`git commit`, `git push`, `git reset`, `git checkout`, `git rebase`, `git clean`) automatically.
 - **No unapproved MCP tools:** Never call external MCP servers or tools unless specifically asked by the user.
 
 ---

@@ -187,7 +187,6 @@ Personal_Knowledge_Base/
 │   │   │       ├── test_guessed_ids.py
 │   │   │       ├── test_payload_tampering.py
 │   │   │       └── test_tenant_isolation.py
-│   │   └── test_auth_and_files.py
 │   ├── alembic.ini                        # Alembic CLI configuration
 │   ├── Dockerfile                         # Python 3.12-slim container specification
 │   ├── main.py                            # FastAPI entry point, lifespan, CORS, router mounts
@@ -250,6 +249,13 @@ Personal_Knowledge_Base/
 │   ├── README.md                          # Frontend documentation
 │   ├── vercel.json                        # Edge API rewrite proxy to https://api.swandrive.me
 │   └── vite.config.js                     # Vite build configuration
+├── test-reports/                          # Automated testing reports & quality assurance documentation
+│   ├── backend-test/                      # Backend Pytest & AI retrieval benchmark reports
+│   │   ├── AI_search_evaluation.md        # AI search accuracy evaluation report (15 queries, 100 seeded docs)
+│   │   └── full_backend_test_report.md    # Complete Pytest execution log (417/417 passed)
+│   ├── frontend-test/                     # Frontend Vitest automated test logs
+│   │   └── frontend_test_report_1.md      # Vitest execution log (39/39 passed)
+│   └── test_summary.md                    # Consolidated QA testing summary for recruiters & contributors
 ├── others/                                # Configuration templates & environment files
 │   └── .env.example                       # Documented environment variable template
 ├── Contributions/                         # Developer guidelines & contribution docs
@@ -310,6 +316,10 @@ Personal_Knowledge_Base/
 | **Frontend Swan AI Chat Page** | `frontend/src/pages/KnowledgeBase.jsx` |
 | **Frontend Landing Marketing Page** | `frontend/src/pages/LandingPage.jsx` |
 | **Frontend Auth Page (Login / Register / OTP)** | `frontend/src/pages/AuthPage.jsx` |
+| **QA Testing Summary Overview** | `test-reports/test_summary.md` |
+| **Backend Pytest Full Execution Report** | `test-reports/backend-test/full_backend_test_report.md` |
+| **AI Search Accuracy Evaluation Report** | `test-reports/backend-test/AI_search_evaluation.md` |
+| **Frontend Vitest Automated Test Report** | `test-reports/frontend-test/frontend_test_report_1.md` |
 
 ---
 
